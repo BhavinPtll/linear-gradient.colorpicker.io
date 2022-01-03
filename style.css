@@ -1,0 +1,133 @@
+*{
+	padding:0;
+	margin:0;
+	font-family:'poppins',sans-serif;
+	box-sizing:border-box;
+}
+#bod {
+	background: grey;
+	font-family: "Poppins", sans-serif;
+}
+
+h3 {
+
+	text-align: center;
+	font-weight: 400;
+	font-size: 1.6rem;
+	color:blue;
+}
+h4{
+	text-align:center;
+	font-weight:500;
+	font-size:1rem;
+	
+}
+form{
+	text-align:center;
+}
+/****************/
+// Animate the size, inside
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+// Stack multiple shadows, one from the left, the other from the right
+.close:hover,
+.close:focus {
+  box-shadow: 
+    inset -3.5em 0 0 0 var(--hover),
+    inset 3.5em 0 0 0 var(--hover);  
+}
+
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+
+.offset {  
+  box-shadow: 
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color);
+  
+  &:hover,
+  &:focus {
+    box-shadow: 
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+  }
+}
+
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae, 
+  close: #ff7f82, 
+  raise: #ffa260, 
+  up: #e4cb58, 
+  slide: #8fc866, 
+  offset: #19bc8b
+);
+
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+
+
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 { font-weight: 400; }
+
+code { 
+  color: #e4cb58;
+  font: inherit;
+}
+/**  FOOTERR  **/
+
+footer {
+    margin:1px;
+    background-color: black;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    border: solid 1px black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 15px 0 #000000;
+}
